@@ -1,0 +1,54 @@
+:root {
+  --bg: #ece6d7;
+  --surface: #fdfcf8;
+  --text: #2a2c20;
+  --muted: #6a6f5c;
+  --line: rgba(42, 44, 32, 0.12);
+  --accent: #b5662f;
+  --radius: 22px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101209;
+    --surface: #23271c;
+    --text: #e9ecdb;
+    --muted: #a7ad97;
+    --line: rgba(233, 236, 219, 0.10);
+    --accent: #d98c5f;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", Roboto, sans-serif;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+header.site { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+header.site a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 19px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); display: inline-block; }
+nav.links { margin-left: auto; display: flex; gap: 16px; font-size: 15px; }
+nav.links a { color: var(--muted); text-decoration: none; }
+nav.links a:hover, nav.links a[aria-current] { color: var(--accent); }
+h1, h2, h3 { font-family: ui-serif, "New York", "Iowan Old Style", Georgia, serif; font-weight: 600; line-height: 1.25; }
+h1 { font-size: 36px; margin: 0 0 8px; }
+h2 { font-size: 23px; margin: 36px 0 8px; }
+h3 { font-size: 18px; margin: 22px 0 4px; }
+p, li { color: var(--text); }
+.lede { color: var(--muted); font-size: 19px; margin-top: 0; }
+.meta { color: var(--muted); font-size: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; margin: 20px 0; }
+.card p:first-child { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+a { color: var(--accent); }
+ul { padding-left: 22px; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; margin: 10px 0; }
+summary { cursor: pointer; font-weight: 600; }
+details p { margin: 10px 0 2px; }
+footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+@media (max-width: 480px) {
+  h1 { font-size: 30px; }
+  nav.links { gap: 12px; }
+}
