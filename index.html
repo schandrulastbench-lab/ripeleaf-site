@@ -2,40 +2,356 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RipeLeaf — calm, private plant care</title>
 <meta name="description" content="RipeLeaf is a calm, private plant-care app for iPhone. No account, no tracking, no subscription.">
-<link rel="stylesheet" href="/style.css">
+<meta name="theme-color" content="#101209">
+<link rel="preload" href="fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-  <header class="site">
-    <span class="dot" aria-hidden="true"></span><a href="/">RipeLeaf</a>
-    <nav class="links"><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
-  </header>
 
-  <h1>Plant care that keeps you calm.</h1>
-  <p class="lede">Gentle reminders, a diary for every plant, and nothing watching you. Coming soon to the App Store for iPhone.</p>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5c-.3 0-.6.1-.8.4C9.6 5 5 11 5 14.6 5 18.7 8.1 22 12 22s7-3.3 7-7.4C19 11 14.4 5 12.8 2.9a1 1 0 0 0-.8-.4Z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 3.2c-7.6-.3-13.7 1.8-15.8 7.4-1.2 3.2-.3 6 1.2 7.8L3.6 20.7a.9.9 0 1 0 1.3 1.3l2.4-2.4c1.8 1.4 4.5 2.1 7.6.9 5.6-2.1 7.6-8.2 7.3-15.9a1.5 1.5 0 0 0-1.4-1.4h-.3ZM8.6 17.3l5.9-5.9a.9.9 0 0 0-1.3-1.3l-5.9 5.9c-.7-1.2-.9-2.9-.2-4.7 1.4-3.8 5.6-5.6 11.7-5.8-.2 6.1-2 10.3-5.8 11.7-1.7.6-3.3.4-4.4-.1Z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5C6.5 5 2.7 9.7 1.6 11.4a1.1 1.1 0 0 0 0 1.2C2.7 14.3 6.5 19 12 19s9.3-4.7 10.4-6.4a1.1 1.1 0 0 0 0-1.2C21.3 9.7 17.5 5 12 5Zm0 11.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Zm0-2.3a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/></symbol>
+    <symbol id="i-turn" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 11a8 8 0 0 0-14.3-4.9M4 13a8 8 0 0 0 14.3 4.9M5 2.8v3.8h3.8M19 21.2v-3.8h-3.8"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 19c0-3.3 2.9-6 6.5-6s6.5 2.7 6.5 6v1H2v-1Zm14.2 1v-1c0-2-.8-3.8-2.1-5.1.8-.6 1.7-.9 2.7-.9 3 0 5.2 2.4 5.2 5.4V20h-5.8Z"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="17" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path fill="currentColor" d="M9 4.5 7.6 6.5H5a2.5 2.5 0 0 0-2.5 2.5v8.5A2.5 2.5 0 0 0 5 20h14a2.5 2.5 0 0 0 2.5-2.5V9A2.5 2.5 0 0 0 19 6.5h-2.6L15 4.5H9Zm3 12.7a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5 13.9 9 20.5 11l-6.6 2L12 19.5 10.1 13 3.5 11l6.6-2L12 2.5Z"/></symbol>
+    <symbol id="i-room" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3.5 10.5 12 3.5l8.5 7V20a.5.5 0 0 1-.5.5h-5v-6h-6v6H4a.5.5 0 0 1-.5-.5v-9.5Z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a6.5 6.5 0 0 0-6.5 6.5v3.6L3.9 15.5a1 1 0 0 0 .9 1.5h14.4a1 1 0 0 0 .9-1.5l-1.6-2.9V9A6.5 6.5 0 0 0 12 2.5Zm-2.7 16a2.8 2.8 0 0 0 5.4 0H9.3Z"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12.5c-2.6 0-5.5 3.3-5.5 5.6 0 1.6 1.3 2.4 2.7 2.4 1.2 0 1.8-.5 2.8-.5s1.6.5 2.8.5c1.4 0 2.7-.8 2.7-2.4 0-2.3-2.9-5.6-5.5-5.6Zm-5-1.5a2 2.5 0 1 0 0-5 2 2.5 0 0 0 0 5Zm10 0a2 2.5 0 1 0 0-5 2 2.5 0 0 0 0 5ZM9.6 7.5a2 2.6 0 1 0 0-5.2 2 2.6 0 0 0 0 5.2Zm4.8 0a2 2.6 0 1 0 0-5.2 2 2.6 0 0 0 0 5.2Z"/></symbol>
+    <symbol id="i-monstera" viewBox="0 0 64 64"><path fill="#a9c46c" d="M32 6C17 6 7 18 7 31c0 8 4 15 10 19l2-9-6 2 4-7-6-1 6-4-4-5 7 1-1-7 6 4 2-7 3 7 3-7 2 7 6-4-1 7 7-1-4 5 6 4-6 1 4 7-6-2 2 9c6-4 10-11 10-19C57 18 47 6 32 6Z"/><path stroke="#2f4422" stroke-width="2" stroke-linecap="round" d="M32 14v44"/></symbol>
+  </defs>
+</svg>
 
-  <div class="card">
-    <p><strong>Your garden, sorted.</strong> Today shows what needs water, feed or a quick check, grouped by room. Tick a whole room off in one go, or mark a plant done straight from its reminder.</p>
+<header class="nav">
+  <div class="col">
+    <a class="brand" href="/" aria-label="RipeLeaf home">
+      <svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle class="track" cx="18" cy="18" r="15.9"/><circle class="fill" cx="18" cy="18" r="15.9" pathLength="100"/></svg>
+      RipeLeaf
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="wide" href="#today">Features</a>
+      <a class="wide" href="#private">Privacy</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <span class="pill-soon">Coming soon</span>
   </div>
-  <div class="card">
-    <p><strong>A diary, not a database.</strong> Photos, notes and every watering build into a timeline you can look back on. Over 1,000 species with care guides and pet-safety notes, written with Australian homes in mind.</p>
-  </div>
-  <div class="card">
-    <p><strong>Private by design.</strong> No account, no sign-in, no ads, no trackers. Your plants live on your device and, if you like, in your own iCloud. We have no way to see any of it.</p>
-  </div>
-  <div class="card">
-    <p><strong>Pay once.</strong> Free to download, with up to three plants. A one-time in-app purchase unlocks as many as you like. It's not a subscription.</p>
-  </div>
+</header>
 
-  <p class="meta">Care guides and pet-safety notes are general information, not professional or veterinary advice.</p>
+<main>
 
-  <footer>
-    <p>Questions? <a href="mailto:support@ripeleaf.app">support@ripeleaf.app</a> · <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Use</a></p>
-    <p>RipeLeaf is made by an independent developer in Australia.</p>
-  </footer>
-</div>
+  <!-- Hero -->
+  <section class="band dusk hero" aria-labelledby="hero-h">
+    <div class="col center">
+      <p class="eyebrow">For iPhone · Coming soon to the App Store</p>
+      <h1 id="hero-h" class="display h-xl">Plant care that keeps you <em>calm.</em></h1>
+      <p class="lede">Gentle reminders, a diary for every plant, and nothing watching you.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#today">See how it works</a>
+        <a class="link-arrow" href="#private">Why it's private</a>
+      </div>
+    </div>
+    <div class="hero-stage">
+      <div class="phone" aria-label="The RipeLeaf Today screen. Try tapping Done.">
+        <div class="screen" id="today-screen">
+          <div class="island"></div>
+          <div class="sbar"><span>9:41</span><span>●●●</span></div>
+          <p class="s-greet" data-greet>Good morning</p>
+          <p class="s-title">Today</p>
+          <p class="s-date" data-today>Saturday 25 October</p>
+
+          <div class="s-h"><b>Needs you</b><span data-count>4</span></div>
+
+          <div data-room>
+            <div class="s-room">Living room <button type="button" data-markall>Mark all (2)</button></div>
+            <div class="task">
+              <div class="thumb" style="background:#2f4422;color:#a9c46c"><svg><use href="#i-drop"/></svg></div>
+              <div class="t-body"><b>Water Monty</b><span>Due today</span></div>
+              <button class="done" type="button">Done</button>
+            </div>
+            <div class="task">
+              <div class="thumb" style="background:#3a3424;color:#e0b760"><svg><use href="#i-turn"/></svg></div>
+              <div class="t-body"><b>Rotate Fiddle Leaf Fig</b><span>Due today</span></div>
+              <button class="done" type="button">Done</button>
+            </div>
+          </div>
+
+          <div data-room>
+            <div class="s-room">Kitchen <button type="button" data-markall>Mark all (2)</button></div>
+            <div class="task">
+              <div class="thumb" style="background:#3d2a1e;color:#d98c5f"><svg><use href="#i-drop"/></svg></div>
+              <div class="t-body"><b>Water Basil</b><span class="late">Overdue since yesterday</span></div>
+              <button class="done" type="button">Done</button>
+            </div>
+            <div class="task">
+              <div class="thumb" style="background:#24302a;color:#8fb98a"><svg><use href="#i-eye"/></svg></div>
+              <div class="t-body"><b>Check Venus Flytrap</b><span>Due today</span></div>
+              <button class="done" type="button">Done</button>
+            </div>
+          </div>
+
+          <div class="all-done">
+            <svg viewBox="0 0 60 60" aria-hidden="true"><path fill="#a9c46c" d="M30 3l6.2 4.6 7.7-.3 2.5 7.3 6.5 4.2-2.2 7.4 2.2 7.4-6.5 4.2-2.5 7.3-7.7-.3L30 57l-6.2-4.6-7.7.3-2.5-7.3-6.5-4.2 2.2-7.4-2.2-7.4 6.5-4.2 2.5-7.3 7.7.3z"/><path fill="none" stroke="#101209" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="m20 30.5 7 7 13-14"/></svg>
+            <b>All cared for</b>
+            <span>Nothing else is due today.</span>
+          </div>
+
+          <div class="fab"><svg style="color:#2a1408"><use href="#i-plus"/></svg></div>
+          <div class="tabbar" aria-hidden="true">
+            <div class="on"><svg><use href="#i-sun"/></svg>Today</div>
+            <div><svg><use href="#i-leaf"/></svg>Plants</div>
+            <div><svg><use href="#i-people"/></svg>Family</div>
+            <div><svg><use href="#i-sliders"/></svg>You</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="hero-note"><span data-hint>Go on, tap <b>Done</b>. It's a working copy of the Today screen.</span> <button type="button" data-reset hidden>Bring them back</button></p>
+  </section>
+
+  <!-- Today / reminders -->
+  <section class="band" id="today" aria-labelledby="today-h">
+    <div class="col split">
+      <div class="reveal">
+        <p class="eyebrow">Today</p>
+        <h2 id="today-h" class="display h-lg">Your garden, <em>sorted.</em></h2>
+        <p class="lede">Today shows what needs water, feed or a quick check, grouped by room. Tick a whole room off in one go, or mark a plant done straight from its reminder.</p>
+        <ul class="facts">
+          <li><svg><use href="#i-room"/></svg><span><b>Grouped by room</b>Living room, kitchen, balcony. Clear one spot at a time.</span></li>
+          <li><svg><use href="#i-bell"/></svg><span><b>Reminders at a time you choose</b>Pick the hour, add quiet days, and choose how they sound.</span></li>
+          <li><svg><use href="#i-turn"/></svg><span><b>Snooze or skip</b>Rained all week? Push it to tomorrow, or skip this one.</span></li>
+        </ul>
+      </div>
+      <div class="stack reveal">
+        <div class="wall">
+          <div class="wall-time">8:00</div>
+          <div class="wall-date" data-today-short>Saturday 25 October</div>
+          <div class="notif">
+            <div class="app"><svg style="color:#d98c5f"><use href="#i-leaf"/></svg></div>
+            <div><b data-n-title>Monty could use a drink 💧</b><span data-n-body>A quick water and they'll be happy. Tap to mark it done.</span></div>
+            <small>now</small>
+          </div>
+          <div class="notif-actions" aria-label="Reminder actions"><span>Mark done</span><span>Snooze to tomorrow</span></div>
+        </div>
+        <div class="tone" role="group" aria-label="Reminder tone">
+          <span>Reminder tone</span>
+          <button type="button" data-tone="gentle" aria-pressed="true">Gentle</button>
+          <button type="button" data-tone="straight" aria-pressed="false">Straight</button>
+          <button type="button" data-tone="playful" aria-pressed="false">Playful</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rhythm -->
+  <section class="band alt" aria-labelledby="rhythm-h">
+    <div class="col center">
+      <p class="eyebrow reveal">The water ring</p>
+      <h2 id="rhythm-h" class="display h-lg reveal">Every plant keeps its <em>own time.</em></h2>
+      <p class="lede reveal">Each plant gets a ring that fills as its next drink gets closer. A fern wants water every few days, a jade every few weeks. RipeLeaf keeps count, and if you keep watering late, it suggests a better rhythm.</p>
+      <div class="rings waiting" data-rings>
+        <div class="ring-card">
+          <div class="wring" style="--p:1;--c:var(--accent)">
+            <svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="46"/><circle class="fill" cx="50" cy="50" r="46"/></svg>
+            <div class="mid"><svg><use href="#i-drop"/></svg><b>Today</b><span>thirsty</span></div>
+          </div>
+          <h3>Boston Fern</h3><p>Every 4 days</p>
+        </div>
+        <div class="ring-card">
+          <div class="wring" style="--p:.29;--c:var(--accent)">
+            <svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="46"/><circle class="fill" cx="50" cy="50" r="46"/></svg>
+            <div class="mid"><svg><use href="#i-drop"/></svg><b>5</b><span>days</span></div>
+          </div>
+          <h3>Monstera</h3><p>Every 7 days</p>
+        </div>
+        <div class="ring-card">
+          <div class="wring" style="--p:.21;--c:var(--lime)">
+            <svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="46"/><circle class="fill" cx="50" cy="50" r="46"/></svg>
+            <div class="mid"><svg><use href="#i-drop"/></svg><b>11</b><span>days</span></div>
+          </div>
+          <h3>Jade Plant</h3><p>Every 14 days</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diary -->
+  <section class="band" aria-labelledby="diary-h">
+    <div class="col split">
+      <div class="phone reveal" aria-label="A plant's page in RipeLeaf, with its water ring and diary">
+        <div class="screen detail">
+          <div class="hero-img"><svg><use href="#i-monstera"/></svg></div>
+          <div class="island"></div>
+          <p class="name">Monty</p>
+          <span class="sp">Monstera deliciosa · Living room</span>
+          <div class="d-ringrow">
+            <div class="wring" style="--p:.29;--c:var(--terracotta)">
+              <svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="44" style="stroke:var(--dusk-line)"/><circle class="fill" cx="50" cy="50" r="44" style="stroke-dasharray:277;stroke-dashoffset:calc(277*(1 - var(--p)))"/></svg>
+              <div class="mid"><b>5</b></div>
+            </div>
+            <p><b>Water in 5 days</b>Every 7 days · watered 2 days ago</p>
+          </div>
+          <ul class="tl">
+            <li><span class="dot" style="color:#d98c5f"><svg><use href="#i-drop"/></svg></span><span><b>Watered</b><span>2 days ago</span></span></li>
+            <li><span class="dot" style="color:#a9c46c"><svg><use href="#i-camera"/></svg></span><span><b>Photo</b><span>Last week</span><i>New leaf unfurling. Third one this spring.</i></span></li>
+            <li><span class="dot" style="color:#e0b760"><svg><use href="#i-leaf"/></svg></span><span><b>Fed</b><span>2 weeks ago</span></span></li>
+            <li><span class="dot" style="color:#7ba0b3"><svg><use href="#i-spark"/></svg></span><span><b>Joined your garden</b><span>March</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Diary</p>
+        <h2 id="diary-h" class="display h-lg">A diary, <em>not a database.</em></h2>
+        <p class="lede">Photos, notes and every watering build into a timeline you can look back on. The first leaf, the repot, the week it nearly didn't make it.</p>
+        <ul class="facts">
+          <li><svg><use href="#i-camera"/></svg><span><b>Photos and notes</b>Snap progress shots and jot down what you changed.</span></li>
+          <li><svg><use href="#i-spark"/></svg><span><b>Keeps their story</b>Gave a plant away, or lost one? Archive it and its history stays.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento -->
+  <section class="band alt" aria-labelledby="more-h">
+    <div class="col">
+      <div class="center reveal">
+        <p class="eyebrow">And a little more</p>
+        <h2 id="more-h" class="display h-lg">Small things, <em>done properly.</em></h2>
+      </div>
+      <div class="bento">
+        <article class="tile t-4 reveal">
+          <div class="big-num">1,000+</div>
+          <h3>Species with care guides</h3>
+          <p>Watering, light, soil, feeding and common problems, written with Australian homes in mind. Natives included.</p>
+          <div class="ticker" aria-hidden="true">
+            <div class="ticker-row" data-ticker="0"></div>
+            <div class="ticker-row" data-ticker="1"></div>
+          </div>
+        </article>
+        <article class="tile t-2 reveal">
+          <h3>Pet-safety notes</h3>
+          <p>See at a glance which plants are a worry for cats and dogs, with what to watch for.</p>
+          <div class="pet">
+            <span class="chip safe"><svg><use href="#i-paw"/></svg>Calathea · pet-safe</span>
+            <span class="chip warn"><svg><use href="#i-paw"/></svg>Peace Lily · toxic to pets</span>
+                        <span class="chip warn"><svg><use href="#i-paw"/></svg>Monstera · toxic to pets</span>
+          </div>
+        </article>
+        <article class="tile t-3 reveal">
+          <h3>On your home screen</h3>
+          <p>A widget shows what's due today, and rolls over at midnight on its own.</p>
+          <div class="widget-wrap">
+            <div class="widget" aria-hidden="true">
+              <div class="w-n">3</div><div class="w-l">due today</div>
+              <div class="w-row"><svg style="color:#d98c5f"><use href="#i-drop"/></svg>Monty</div>
+              <div class="w-row"><svg style="color:#d98c5f"><use href="#i-drop"/></svg>Basil</div>
+              <div class="w-row"><svg style="color:#8fb98a"><use href="#i-eye"/></svg>Venus Flytrap</div>
+            </div>
+          </div>
+        </article>
+        <article class="tile t-3 reveal">
+          <h3>Make it yours</h3>
+          <p>Light, dark or match your phone, with six accent colours. Try one.</p>
+          <div class="swatches" role="group" aria-label="Accent colour">
+            <button type="button" style="--s:#d98c5f" data-accent="#d98c5f" data-accent-l="#b5662f" aria-pressed="true" aria-label="Terracotta"></button>
+            <button type="button" style="--s:#a9c46c" data-accent="#a9c46c" data-accent-l="#6f8a3a" aria-pressed="false" aria-label="Lime"></button>
+            <button type="button" style="--s:#8fb98a" data-accent="#8fb98a" data-accent-l="#4f7a4a" aria-pressed="false" aria-label="Sage"></button>
+            <button type="button" style="--s:#e0b760" data-accent="#e0b760" data-accent-l="#a8801f" aria-pressed="false" aria-label="Honey"></button>
+            <button type="button" style="--s:#7ba0b3" data-accent="#7ba0b3" data-accent-l="#4a7385" aria-pressed="false" aria-label="Dusty Blue"></button>
+            <button type="button" style="--s:#b384b0" data-accent="#b384b0" data-accent-l="#87577f" aria-pressed="false" aria-label="Plum"></button>
+          </div>
+        </article>
+        <article class="tile t-2 reveal">
+          <h3>Your data, to keep</h3>
+          <p>Export your whole garden as one file, any time.</p>
+          <div class="zip"><b>RipeLeaf Garden.zip</b><br>├ garden.json<br>├ photos/<br>└ README.txt</div>
+        </article>
+        <article class="tile t-4 reveal">
+          <h3>Learns your habits</h3>
+          <p>If you keep watering a plant a few days late, RipeLeaf suggests a longer gap. You decide whether to take it. Nothing changes without you.</p>
+          <div class="pet">
+            <span class="chip warn"><svg><use href="#i-drop"/></svg>Every 7 days</span>
+            <span class="chip safe"><svg><use href="#i-check"/></svg>Try every 10?</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section class="band dusk" id="private" aria-labelledby="private-h">
+    <div class="col center">
+      <p class="eyebrow reveal">Private by design</p>
+      <h2 id="private-h" class="display h-lg reveal">Your garden is <em>your business.</em></h2>
+      <p class="lede reveal">No account, no sign-in, no ads, no trackers. Your plants live on your device and, if you like, in your own iCloud. We have no way to see any of it.</p>
+      <div class="receipt reveal">
+        <h3>What RipeLeaf asks of you</h3>
+        <dl>
+          <dt>Account or sign-up</dt><dd>None</dd>
+          <dt>Ads</dt><dd>None</dd>
+          <dt>Third-party trackers</dt><dd>None</dd>
+          <dt>Our servers</dt><dd>None</dd>
+          <div class="rule"></div>
+          <dt>Where your plants live</dt><dd>Your iPhone</dd>
+          <dt>Sync between devices</dt><dd>Your iCloud</dd>
+          <div class="rule"></div>
+          <div class="total" style="display:contents"><dt>Subscription</dt><dd>Not needed</dd></div>
+        </dl>
+        <p>Read the plain-language <a href="/privacy/">Privacy Policy</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="band" aria-labelledby="price-h">
+    <div class="col center">
+      <p class="eyebrow reveal">Pricing</p>
+      <h2 id="price-h" class="display h-lg reveal">Pay <em>once.</em></h2>
+      <p class="lede reveal">Free to download, with up to three plants. A one-time in-app purchase unlocks as many as you like. It's not a subscription.</p>
+      <div class="prices">
+        <div class="price reveal">
+          <h3>Free</h3>
+          <div class="amt">Up to 3 plants</div>
+          <ul><li>Reminders and the Today list</li><li>Care guides and pet-safety notes</li><li>Diary, photos and widget</li></ul>
+        </div>
+        <div class="price featured reveal">
+          <h3>Unlock</h3>
+          <div class="amt">Every plant</div>
+          <ul><li>One payment, yours to keep</li><li>Restore on your other devices</li><li>Price shown in the App Store</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="band alt closing" aria-labelledby="close-h">
+    <div class="col center reveal">
+      <h2 id="close-h" class="display h-lg">Coming soon to the <em>App Store.</em></h2>
+      <p class="lede">For iPhone. Questions in the meantime? Write to <a href="mailto:support@ripeleaf.app">support@ripeleaf.app</a> and the developer who makes RipeLeaf will reply.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="col">
+    <p class="fine">Care guides and pet-safety notes are general information, not professional or veterinary advice. Apple, iPhone, iCloud and App Store are trademarks of Apple Inc.</p>
+    <div class="foot-row">
+      <span>RipeLeaf is made by an indie developer in Australia.</span>
+      <span class="sp"></span>
+      <a href="/support/">Support</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
 </body>
 </html>
